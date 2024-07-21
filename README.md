@@ -4,35 +4,29 @@ This repository provides a standardized naming convention for virtual machines (
 
 ## General Format
 ```
-<Location>-<Environment>-<Service>-<Application>-<Identifier>
+<Application>-<Service>-<Environment>-<Identifier>
 ```
-
+## Considerations for Azure Entra ID
+When configuring VM names in Azure Entra ID (formerly Azure AD), it’s important to note that the device name, including VMs, has a maximum length of 15 characters. This limitation aligns with the Windows restriction for device names. Ensuring that your VM names do not exceed this limit is crucial for maintaining compatibility and avoiding integration issues with the Entra ID domain.
 ## Naming Components
-
-1. **Location (3 characters):**
-   - BSB (Brasília)
-   - SAO (São Paulo)
-   - RIO (Rio de Janeiro)
-
-2. **Environment (4 characters):**
-   - PROD (Production)
-   - HMLG (Homologation)
-   - DEVL (Development)
-
-3. **Service (3 characters):**
+1. **Application (+3 characters):**
+   - VCEN (VCenter Application)
+   - K8S (Kubernetes)
+   - ERP (Enterprise Resource Planning)
+   - CRM (Customer Relationship Management)
+2. **Service (3 characters):**
    - APP (Application)
    - WEB (Web Service)
    - DB (Database)
    - BCK (Backup)
    - LB (Load Balancer)
 
-4. **Application (3 characters):**
-   - VCE (VCenter Application)
-   - K8S (Kubernetes)
-   - ERP (Enterprise Resource Planning)
-   - CRM (Customer Relationship Management)
+3. **Environment (4 characters):**
+   - PROD (Production)
+   - HMLG (Homologation)
+   - DEVL (Development)
 
-5. **Identifier (3 characters):**
+4. **Identifier (3 characters):**
    - Sequential number or unique identifier
 
 ## Service Characteristics
@@ -51,7 +45,7 @@ This repository provides a standardized naming convention for virtual machines (
   - Customer portals.
   - Public APIs providing data via HTTP/HTTPS.
 
-### DB (Database)
+### DBA (Database)
 - **Description**: Refers to database services that store and manage data.
 - **Examples**:
   - MySQL, PostgreSQL, Oracle databases.
@@ -63,7 +57,7 @@ This repository provides a standardized naming convention for virtual machines (
   - Scheduled data backups.
   - Replicated storage solutions.
 
-### LB (Load Balancer)
+### LBA (Load Balancer)
 - **Description**: Refers to load balancing services that distribute network or application traffic across multiple servers.
 - **Examples**:
   - HAProxy, Nginx, or other load balancing software.
@@ -71,18 +65,18 @@ This repository provides a standardized naming convention for virtual machines (
 
 ## Examples
 
-- Brasília, Production, Application, VCE, Identifier 001:
+- VCE,Application,Production, Identifier 001:
 ```
-BSB-PROD-APP-VCE-001
+vce-app-prd-001
 ```
-- Rio de Janeiro, Development, Database, ERP, Identifier 003:
+- Rancher, Application,Homologation, Identifier 002:
 ```
-RIO-DEVL-DB-ERP-003
+rch-app-hml-002
 ```
 
-- Brasília, Production, Backup, CRM, Identifier 004:
+- ERP,Database,Development, Identifier 003:
 ```
-BSB-PROD-BCK-CRM-004
+erp-dba-dev-001
 ```
 
 
